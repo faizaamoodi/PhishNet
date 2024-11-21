@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "PhishNet",
+  "description": "Flags phishing emails",
+  "version": "1.0",
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": "phishnet_logo.png"
+  },
+  "permissions": [
+    "tabs"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["sign-up.html"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
