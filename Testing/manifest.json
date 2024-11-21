@@ -9,7 +9,7 @@
     "storage"
   ],
   "oauth2": {
-    "client_id": "142162449253-u9pa4kn7avha1jnm1eacdmjjv0t16aod.apps.googleusercontent.com",
+    "client_id": "142162449253-4i07mf5tb68miovehosf1lgh382nkts4.apps.googleusercontent.com",
     "scopes": [
       "https://www.googleapis.com/auth/gmail.readonly"
     ]
