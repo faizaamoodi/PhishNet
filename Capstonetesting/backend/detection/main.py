@@ -18,7 +18,7 @@ if __name__ == "__main__":
     Failure to do so may result in account suspension.
 
     Best regards,
-    Security Team
+    Crowdstike
     """
 
     result = analyze_email(email_content, email_subject)
