@@ -21,13 +21,29 @@ document.getElementById("scan-btn").addEventListener("click", async () => {
     displayResults(scanResults);
 
     const confPhish = document.getElementById("conf-btn");
+    const markSafe = document.getElementById("marksafe-btn");
     confPhish.style.display = "inline-block";
+    markSafe.style.display = "inline-block";
     confPhish.disabled = false;
+    markSafe.disabled = false;
     document.getElementById("status").textContent = "Scanning complete! Ready to confirm.";  
   } catch (error) {
     document.getElementById("status").textContent = "Failed to scan inbox. Please try again.";
     console.error("Error scanning inbox:", error);
   }
+});
+
+document.getElementById("marksafe-btn").addEventListener("click", () => {
+  const resultsContainer = document.getElementById("results");
+  const flaggedPhishingEmails = resultsContainer.querySelectorAll(".phishing");
+
+  flaggedPhishingEmails.forEach((email) => {
+    email.classList.remove("phishing");
+    email.classList.add("safe");
+    email.querySelector(".status").textContent = "Marked as Safe";
+  });
+
+  document.getElementById("status").textContent = "Selected emails marked as safe.";
 });
 
 async function fetchGmailMessages(accessToken) {
