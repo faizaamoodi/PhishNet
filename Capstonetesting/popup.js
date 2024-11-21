@@ -19,6 +19,11 @@ document.getElementById("scan-btn").addEventListener("click", async () => {
     const messages = await fetchGmailMessages(token);
     const scanResults = await analyzeMessages(messages);
     displayResults(scanResults);
+
+    const confPhish = document.getElementById("conf-btn");
+    confPhish.style.display = "inline-block";
+    confPhish.disabled = false;
+    document.getElementById("status").textContent = "Scanning complete! Ready to confirm.";  
   } catch (error) {
     document.getElementById("status").textContent = "Failed to scan inbox. Please try again.";
     console.error("Error scanning inbox:", error);
