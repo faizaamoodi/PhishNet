@@ -6,5 +6,5 @@ To create the ID, you have to copy the ID from the extension you are loading on 
 Testing from there is done through the cmd line. 
 Install all the requirements (requirements are mnot updated, so if anyone wants to update them, you are welcome to)
 and run the script in the 'backend directory'
-still a mess, as I am still training the model.
+The code is still a mess, as I am still training the model.
 Goodluck!!!
