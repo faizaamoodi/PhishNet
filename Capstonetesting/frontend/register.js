@@ -1,90 +1,104 @@
-let signupBtn = document.getElementById("signupBtn");
-let signinBtn = document.getElementById("signinBtn");
-let nameField = document.getElementById("nameField");
-let phoneField = document.getElementById("phoneField");
-let title = document.getElementById("title");
-let signupForm = document.getElementById("signupForm");
+document.addEventListener("DOMContentLoaded", function () {
+    const signupForm = document.getElementById("signupForm");
+    const loginForm = document.getElementById("loginForm");
+    const toggleModeBtn = document.getElementById("toggleModeBtn");
+    const title = document.getElementById("title");
 
-let forgotPasswordModal = document.getElementById("forgotPasswordModal");
-let closeModal = document.getElementById("closeModal");
-let forgotPasswordForm = document.getElementById("forgotPasswordForm");
-let submitForgotPassword = document.getElementById("submitForgotPassword");
-let confirmationMessage = document.getElementById("confirmationMessage");
+    const forgotPasswordLink = document.getElementById("forgotPasswordLink");
+    const forgotPasswordModal = document.getElementById("forgotPasswordModal");
+    const closeModal = document.getElementById("closeModal");
+    const forgotPasswordForm = document.getElementById("forgotPasswordForm");
 
-signinBtn.onclick = function(){
-    nameField.style.maxHeight = "0";
-    phoneField.style.maxHeight = "0";
-    title.innerHTML = "Sign In";
-    signupBtn.classList.add("disable");
-    signinBtn.classList.remove("disable");
-}
+    let isLoginMode = false;
 
-signupBtn.onclick = function(){
-    nameField.style.maxHeight = "60px";
-    phoneField.style.maxHeight = "60px";
-    title.innerHTML = "Sign Up";
-    signupBtn.classList.remove("disable");
-    signinBtn.classList.add("disable");
-}
+    toggleModeBtn.addEventListener("click", () => {
+        if (isLoginMode) {
+            loginForm.style.display = "none";
+            signupForm.style.display = "block";
+            title.textContent = "Sign Up";
+            toggleModeBtn.textContent = "Switch to Log In";
+            isLoginMode = false;
+        } else {
+            signupForm.style.display = "none";
+            loginForm.style.display = "block";
+            title.textContent = "Log In";
+            toggleModeBtn.textContent = "Switch to Sign Up";
+            isLoginMode = true;
+        }
+    });
 
-signupForm.onsubmit = function(event) {
-    event.preventDefault();
+    signupForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const name = document.getElementById("signupName").value;
+        const email = document.getElementById("signupEmail").value;
+        const phone = document.getElementById("signupPhone").value;
+        const password = document.getElementById("signupPassword").value;
 
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const phone = document.getElementById("phone").value;
-    const password = document.getElementById("password").value;
+        if (!name || !email || !password) {
+            alert("Please fill in all required fields.");
+            return;
+        }
 
-    if (name === "" || email === "" || password === "") {
-        alert("Please fill in all fields.");
-        return;
-    }
+        const params = new URLSearchParams({
+            name,
+            email,
+            phone,
+            action: "signup",
+        }).toString();
 
-    const passwordPattern = /^(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
-    if (!passwordPattern.test(password)) {
-        alert("Password must be at least 8 characters long and contain at least one number and one symbol.");
-        return;
-    }
+        window.open(`success.html?${params}`, "_blank");
+    });
 
-    console.log("Form submitted:");
-    console.log("Name: " + name);
-    console.log("Email: " + email);
+    loginForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const email = document.getElementById("loginEmail").value;
+        const password = document.getElementById("loginPassword").value;
 
-    if (phone) {
-        console.log("Phone Number: " + phone);
-    }
+        if (!email || !password) {
+            alert("Please fill in your email and password.");
+            return;
+        }
 
-    console.log("Password: " + password);
+        const params = new URLSearchParams({
+            email,
+            action: "login",
+        }).toString();
 
+        window.open(`success.html?${params}`, "_blank");
+    });
 
-    signupForm.reset();
-}
+    forgotPasswordLink.addEventListener("click", (event) => {
+        event.preventDefault();
+        forgotPasswordModal.style.display = "block";
+    });
 
-document.getElementById("forgotPasswordLink").onclick = function() {
-    forgotPasswordModal.style.display = "block";
-}
-
-closeModal.onclick = function() {
-    forgotPasswordModal.style.display = "none";
-}
-
-window.onclick = function(event) {
-    if (event.target == forgotPasswordModal) {
+    closeModal.addEventListener("click", () => {
         forgotPasswordModal.style.display = "none";
-    }
-}
+    });
 
-forgotPasswordForm.onsubmit = function(event) {
-    event.preventDefault();
+    window.addEventListener("click", (event) => {
+        if (event.target === forgotPasswordModal) {
+            forgotPasswordModal.style.display = "none";
+        }
+    });
 
-    const email = document.getElementById("modalEmail").value;
-    const phone = document.getElementById("modalPhone").value;
+    forgotPasswordForm.addEventListener("submit", (event) => {
+        event.preventDefault();
 
-    if (!email) {
-        alert("Email is required.");
-        return;
-    }
+        const email = document.getElementById("modalEmail").value;
+        const phone = document.getElementById("modalPhone").value;
 
-    confirmationMessage.style.display = "block";
-    forgotPasswordForm.reset();
-}
+        if (!email) {
+            alert("Email is required.");
+            return;
+        }
+
+        const params = new URLSearchParams({
+            email,
+            phone,
+            action: "forgot_password",
+        }).toString();
+
+        window.open(`success.html?${params}`, "_blank");
+    });
+});
