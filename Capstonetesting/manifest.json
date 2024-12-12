@@ -22,5 +22,10 @@
       "128": "icon128.png"
     }
   },
+    "icons": {
+    "16": "frontend/phishnet_logo.png",
+    "48": "frontend/phishnet_logo.png",
+    "128": "frontend/phishnet_logo.png"
+  },
   "host_permissions": ["https://www.googleapis.com/*"]
 }
