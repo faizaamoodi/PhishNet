@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Testing2",
+  "name": "PhishNet",
   "version": "1.0",
-  "description": "Test",
+  "description": "Flags phishing emails.",
   "permissions": [
     "identity",
     "identity.email",
@@ -22,10 +22,10 @@
       "128": "icon128.png"
     }
   },
-    "icons": {
+  "icons": {
     "16": "frontend/phishnet_logo.png",
     "48": "frontend/phishnet_logo.png",
     "128": "frontend/phishnet_logo.png"
-  },
+  },  
   "host_permissions": ["https://www.googleapis.com/*"]
 }
