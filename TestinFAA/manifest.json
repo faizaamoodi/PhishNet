@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Testing",
+  "version": "1.0",
+  "description": "Test",
+  "permissions": [
+    "identity",
+    "identity.email",
+    "storage"
+  ],
+  "oauth2": {
+    "client_id": "142162449253-u9pa4kn7avha1jnm1eacdmjjv0t16aod.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/gmail.readonly"
+    ]
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "host_permissions": ["https://www.googleapis.com/*"]
+}
