@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PhishNet Login</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="phishnet_logo.png" type="image/x-icon">
 </head>
+
 <body>
     <div class="container">
         <div class="form-box">
             <h1 id="title">Sign Up</h1>
-            
+
             <form id="signupForm" class="form">
                 <div class="input-group">
                     <div class="input-field">
@@ -20,8 +22,14 @@
                         <input type="email" id="signupEmail" name="signupEmail" placeholder="Email*" required>
                     </div>
                     <div class="input-field">
-                        <input type="tel" id="signupPhone" name="signupPhone" placeholder="Phone" pattern="[0-9]{10}">
+                        <input type="tel" id="signupPhone" name="signupPhone" placeholder="Phone" pattern="[0-9]{10}" required>
+                        <button type="button" id="sendOtpBtn" class="action-btn">Send OTP</button>
                     </div>
+
+                    <div class="input-field" id="otpField" style="display: none;">
+                        <input type="text" id="otpCode" name="otpCode" placeholder="Enter OTP*" required>
+                    </div>
+
                     <div class="input-field">
                         <input type="password" id="signupPassword" name="signupPassword" placeholder="Password*" required>
                     </div>
@@ -66,4 +74,5 @@
 
     <script src="register.js"></script>
 </body>
+
 </html>
