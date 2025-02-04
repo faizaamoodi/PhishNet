@@ -33,8 +33,15 @@
                     <div class="input-field">
                         <input type="password" id="signupPassword" name="signupPassword" placeholder="Password*" required>
                     </div>
+
+                    <div class="input-field">
+                        <label>
+                            <input type="checkbox" id="optInCheckbox" required> I agree to receive SMS/text messages from 844-405-7912. Reply STOP to opt-out, HELP for help.
+                        </label>
+                    </div>                
                 </div>
-                <button type="submit" id="signupSubmit" class="action-btn">Sign Up</button>
+                
+                <button type="submit" id="signupSubmit" class="action-btn" disabled>Sign Up</button>
             </form>
 
             <form id="loginForm" class="form" style="display: none;">
@@ -72,6 +79,12 @@
         </div>
     </div>
 
+    <script>
+        document.getElementById('optInCheckbox').addEventListener('change', function () {
+            document.getElementById('signupSubmit').disabled = !this.checked;
+        });
+    </script>
+    
     <script src="register.js"></script>
     <script src="firebase-config.js"></script>
 </body>
