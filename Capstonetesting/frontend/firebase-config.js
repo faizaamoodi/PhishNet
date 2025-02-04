@@ -20,4 +20,16 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase(app); 
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
-export default app;
+//ZOHA BELOW FUNCTION ADD IT IN YOUR register.js file, i didn't want to mess that up so i didn't edit. it's important to add."
+createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed up 
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+  });
+</script>
