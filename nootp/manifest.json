@@ -1,0 +1,31 @@
+{
+    "manifest_version": 3,
+    "name": "PhishNet",
+    "version": "1.0",
+    "description": "Flags phishing emails.",
+    "permissions": [
+        "identity",
+        "identity.email",
+        "storage"
+    ],
+    "oauth2": {
+        "client_id": "142162449253-4i07mf5tb68miovehosf1lgh382nkts4.apps.googleusercontent.com",
+        "scopes": [
+            "https://www.googleapis.com/auth/gmail.readonly"
+        ]
+    },
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "icon16.png",
+            "48": "icon48.png",
+            "128": "icon128.png"
+        }
+    },
+    "icons": {
+        "16": "frontend/phishnet_logo.png",
+        "48": "frontend/phishnet_logo.png",
+        "128": "frontend/phishnet_logo.png"
+    },
+    "host_permissions": ["https://www.googleapis.com/*"]
+}
