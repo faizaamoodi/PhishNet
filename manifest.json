@@ -8,11 +8,12 @@
     "identity.email",
     "storage",
     "activeTab",
+    "tabs",
     "scripting"
   ],
   "host_permissions": [
     "https://mail.google.com/*",
-    "https://www.googleapis.com/*"
+    "https://www.googleapis.com/gmail/v1/users/*"
   ],
   "oauth2": {
     "client_id": "142162449253-05ka7aiclen157qqtie1m1mc4fgnvpkj.apps.googleusercontent.com",
@@ -44,8 +45,8 @@
   },
   "web_accessible_resources": [
     {
-      "resources": ["images/*.png", "images/*.svg", "images/*.gif"],
-      "matches": ["https://mail.google.com/*"],
+      "resources": ["images/*.png", "images/*.svg", "images/*.gif", "sign-up.html"],
+      "matches": ["https://mail.google.com/*", "<all_urls>"],
       "use_dynamic_url": false
     }
   ],
