@@ -13,6 +13,10 @@ document.getElementById("connect-btn").addEventListener("click", () => {
   });
 });
 
+document.getElementById("loginBtn").addEventListener("click", function() {
+    chrome.tabs.create({ url: "mfa/index.html" });
+});
+
 document.getElementById("scan-btn").addEventListener("click", async () => {
   document.getElementById("status").textContent = "Scanning your inbox...";
   try {
