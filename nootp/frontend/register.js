@@ -1,4 +1,9 @@
-// firebase configuarion keys
+// imports
+import { initializeApp } from "firebase/app";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { getFirestore, setDoc, doc } from "firebase/firestore";
+
+// firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyCGyK2CUBIsDen5PN6rR8wSV23JQXwcCes",
     authDomain: "phishing-f4a58.firebaseapp.com",
@@ -9,12 +14,12 @@ const firebaseConfig = {
     measurementId: "G-ST9ZKKDMXX"
   };
   
-  // initalize firebase
+  // initialize firebase
   const app = initializeApp(firebaseConfig);
   
   // load DOM first
   document.addEventListener("DOMContentLoaded", function () {
-      console.log("register.js loaded and DOM fully parsed");
+      console.log("register.js loaded and DOM fully parsed"); // Debugging check
   
       // element references from DOM
       const signupForm = document.getElementById("signupForm");
@@ -25,7 +30,7 @@ const firebaseConfig = {
       const forgotPasswordModal = document.getElementById("forgotPasswordModal");
       const closeModal = document.getElementById("closeModal");
   
-      // initalize firebase services
+      // initialize firebase services
       const auth = getAuth(app);
       const db = getFirestore(app);
   
@@ -51,14 +56,14 @@ const firebaseConfig = {
   
       // password validation
       function isPasswordValid(password) {
-          // regex to ensure pw is at least 8 char with 1 symbol, 1 uppercase, and 1 lowercase
+        // regex to ensure pw is at least 8 char with 1 symbol, 1 uppercase, and 1 number
           const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
           return passwordRegex.test(password);
       }
   
       // sign up form
       signupForm.addEventListener("submit", async (event) => {
-          event.preventDefault(); // prevents form from refreshing
+          event.preventDefault();
   
           // gets inputs from user and trims whitespace
           const name = document.getElementById("signupName").value.trim();
@@ -96,7 +101,7 @@ const firebaseConfig = {
           }
       });
   
-     // sign in form
+    // sign in form
      loginForm.addEventListener("submit", async (event) => {
           event.preventDefault();
           
@@ -104,7 +109,6 @@ const firebaseConfig = {
           const email = document.getElementById("loginEmail").value.trim();
           const password = document.getElementById("loginPassword").value.trim();
   
-          // ensures all fields are filled
           if (!email || !password) {
               alert("Please fill in both email and password.");
               return;
@@ -147,13 +151,13 @@ const firebaseConfig = {
           // get email address from modal
           const email = document.getElementById("modalEmail").value.trim();
   
-          // ensures email is filled
+          // ensure email is fileld
           if (!email) {
               alert("Email is required.");
               return;
           }
   
-          // send email. aznot fully implemented yet.
+          // send email. is not fully implemented yet.
           alert("Check your email for reset instructions.");
           forgotPasswordModal.style.display = "none";
       });
