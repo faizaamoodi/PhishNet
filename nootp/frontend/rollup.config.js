@@ -2,7 +2,7 @@
 import resolve from "@rollup/plugin-node-resolve";
 
 export default {
-  input: "dist/bundle.js",
+  input: "dist/register.js",
   output: {
     file: "dist/bundle.js",
     format: "esm"
