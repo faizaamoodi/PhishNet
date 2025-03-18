@@ -22,12 +22,11 @@
                         <input type="email" id="signupEmail" name="signupEmail" placeholder="Email*" required>
                     </div>
                     <div class="input-field">
-                        <input type="tel" id="signupPhone" name="signupPhone" placeholder="Phone" pattern="[0-9]{10}" required>
+                        <input type="tel" id="signupPhone" name="signupPhone" placeholder="Phone">
                         <button type="button" id="sendOtpBtn" class="action-btn">Send OTP</button>
                     </div>
-
                     <div class="input-field" id="otpField" style="display: none;">
-                        <input type="text" id="otpCode" name="otpCode" placeholder="Enter OTP*" required>
+                        <input type="text" id="otpCode" name="otpCode" placeholder="Enter OTP*">
                     </div>
 
                     <div class="input-field">
@@ -79,11 +78,11 @@
         </div>
     </div>
 
-    <script>
+   <!-- <script>
         document.getElementById('optInCheckbox').addEventListener('change', function () {
             document.getElementById('signupSubmit').disabled = !this.checked;
         });
-    </script>
+    </script> -->
     
     <script src="dist/bundle.js"></script>
    <!-- <script src="firebase-config.js"></script> -->
